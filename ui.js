@@ -1,0 +1,3 @@
+module.exports = api => {
+  // 在这里使用 API...
+}
