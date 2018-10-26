@@ -12,18 +12,17 @@ module.exports = api => {
         link: 'https://github.com/yuezhilunhui2009/vue-cli-plugin-qcloud-cos-uploader',
         files: {
             qcloudCosUploader: {
-                package: 'qcouldCosUploader'
+                package: 'qcloudCosUploader'
             }
         },
-        onRead: ({ data, cwd }) => ({
-            prompts
-        }),
-        onWrite: async ({ api, prompts, answers }) => {
-            const result = {}
+        onRead: ({ data, cwd }) => prompts({ data, cwd }),
+        onWrite: async ({ api, prompts }) => {
+            const vueData = {}
             for (const prompt of prompts) {
-                result[prompt.id] = await api.getAnswer(prompt.id, JSON.parse)
+                vueData[prompt.id] = await api.getAnswer(prompt.id)
             }
-            api.setData('qcloudCosUploader', result)
+
+            api.setData('qcloudCosUploader', vueData)
         }
     })
 }
