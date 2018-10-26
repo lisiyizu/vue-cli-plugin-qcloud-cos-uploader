@@ -2,6 +2,7 @@ module.exports = function ({ data, cwd }) {
     return {
         prompts: [
             {
+                group: '腾讯云授权',
                 name: 'secretId',
                 message: 'SecretId',
                 type: 'input',
@@ -11,6 +12,7 @@ module.exports = function ({ data, cwd }) {
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#secretid-secretkey'
             },
             {
+                group: '腾讯云授权',
                 name: 'secretKey',
                 message: 'SecretKey',
                 type: 'input',
@@ -20,6 +22,7 @@ module.exports = function ({ data, cwd }) {
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#secretid-secretkey'
             },
             {
+                group: '存储配置',
                 name: 'bucket',
                 message: 'Bucket',
                 type: 'input',
@@ -29,6 +32,7 @@ module.exports = function ({ data, cwd }) {
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#bucket'
             },
             {
+                group: '存储配置',
                 name: 'region',
                 message: 'Region',
                 type: 'input',
@@ -38,6 +42,7 @@ module.exports = function ({ data, cwd }) {
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#region'
             },
             {
+                group: '本地上传配置',
                 name: 'path',
                 message: 'Path',
                 type: 'input',
@@ -47,15 +52,17 @@ module.exports = function ({ data, cwd }) {
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#path'
             },
             {
+                group: '预览配置',
                 name: 'baseUrl',
                 message: 'BaseUrl',
                 type: 'input',
                 default: '',
                 value: data.qcloudCosUploader.baseUrl,
-                description: '存储位置的 URL',
+                description: '存储位置的 URL，用于拼接出正确的页面链接',
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#baseurl'
             },
             {
+                group: '存储配置',
                 name: 'randomPrefix',
                 message: 'RandomPrefix',
                 type: 'confirm',
@@ -65,6 +72,7 @@ module.exports = function ({ data, cwd }) {
                 link: 'https://github.com/yuezhilunhui2009/cos-uploader#randomprefix'
             },
             {
+                group: '预览配置',
                 name: 'qrCode',
                 message: 'QRCode',
                 type: 'input',

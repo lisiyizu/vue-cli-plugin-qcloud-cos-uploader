@@ -1,6 +1,8 @@
-const prompts = require('./prompts')
+const task = require('./task')
+const config = require('./config')
 
 module.exports = api => {
+    api.describeTask(task)
     api.describeConfig({
         // 唯一的配置 ID
         id: 'yuezhilunhui.com.github',
@@ -15,7 +17,7 @@ module.exports = api => {
                 package: 'qcloudCosUploader'
             }
         },
-        onRead: ({ data, cwd }) => prompts({ data, cwd }),
+        onRead: ({ data, cwd }) => config({ data, cwd }),
         onWrite: async ({ api, prompts }) => {
             const vueData = {}
             for (const prompt of prompts) {
